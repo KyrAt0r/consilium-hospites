@@ -1,18 +1,16 @@
-import antfu from '@antfu/eslint-config'
-import pluginJs from '@eslint/js'
-import tsEslintParser from '@typescript-eslint/parser'
-import importPlugin from 'eslint-plugin-import'
-import prettierRecommended from 'eslint-plugin-prettier/recommended'
-import pluginReact from 'eslint-plugin-react'
-import hooks from 'eslint-plugin-react-hooks'
-import simpleImportSort from 'eslint-plugin-simple-import-sort'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import antfu from '@antfu/eslint-config';
+import pluginJs from '@eslint/js';
+import tsEslintParser from '@typescript-eslint/parser';
+import prettierRecommended from 'eslint-plugin-prettier/recommended';
+import pluginReact from 'eslint-plugin-react';
+import hooks from 'eslint-plugin-react-hooks';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 const commonRules = {
   'prettier/prettier': ['error', { endOfLine: 'auto' }],
-  'import/no-cycle': [2, { maxDepth: 3 }],
-}
+};
 
 const typescript = {
   settings: {
@@ -31,11 +29,12 @@ const typescript = {
     parserOptions: { project: ['tsconfig.app.json'] },
   },
   rules: {
+    'ts/no-unsafe-assignment': 'off',
     'boundaries/no-private': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: 'React' }],
   },
-}
+};
 
 const customConfig = [
   {
@@ -43,11 +42,7 @@ const customConfig = [
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  importPlugin.flatConfigs.recommended,
-  importPlugin.flatConfigs.react,
-  importPlugin.flatConfigs.errors,
-  importPlugin.flatConfigs.warnings,
-  importPlugin.flatConfigs.typescript,
+
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat['jsx-runtime'],
   prettierRecommended,
@@ -107,7 +102,7 @@ const customConfig = [
       'import/no-unresolved': 'off',
     },
   },
-]
+];
 
 export default antfu({
   ...customConfig,
@@ -115,4 +110,15 @@ export default antfu({
   typescript: {
     tsconfigPath: 'tsconfig.json',
   },
-})
+  rules: {
+    'antfu/top-level-function': 'off',
+    'style/semi': 'off',
+    'style/member-delimiter-style': 'off',
+    'antfu/if-newline': 'off',
+    'style/multiline-ternary': 'off',
+    'style/brace-style': 'off',
+    'style/arrow-parens': 'off',
+    'ts/no-unsafe-argument': 'off',
+    'ts/no-unsafe-return': 'off',
+  },
+});

@@ -115,7 +115,7 @@ consilium-hospites/
 │   ├─ App.jsx
 │   └─ main.jsx             # Точка входа для Vite
 ├─ package.json
-├─ vite.config.js           # Конфигурация Vite
+├─ vite.config.ts           # Конфигурация Vite
 ├─ README.md                # Этот файл
 └─ ...
 ```
@@ -124,4 +124,4 @@ consilium-hospites/
 
 `public/` — содержит статические файлы, такие как HTML-шаблоны и изображения.
 
-`vite.config.js` — файл конфигурации для Vite.
+`vite.config.ts` — файл конфигурации для Vite.
