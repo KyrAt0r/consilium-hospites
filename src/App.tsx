@@ -1,29 +1,16 @@
-import { useState } from 'react'
+import { Graph } from '@components/Graph/Graph.tsx';
 
-import './App.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import './App.css';
+
+const queryClient = new QueryClient();
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div></div>
-      <h1>@Kukuruznik presset</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount(count => count + 1)}>
-          count is
-          {count}
-        </button>
-        <p>
-          Edit
-          {' '}
-          <code>src/App.tsx</code>
-          {' '}
-          and save to test HMR
-        </p>
-      </div>
-    </>
-  )
+    <QueryClientProvider client={queryClient}>
+      <Graph />
+    </QueryClientProvider>
+  );
 }
 
-export default App
+export default App;
