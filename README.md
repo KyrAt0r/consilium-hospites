@@ -2,7 +2,7 @@
 
 Добро пожаловать в **Consilium Hospites** — приложение на React, использующее Vite для сборки, Bun для управления зависимостями и выполнения скриптов, а также Husky для настройки Git-хуков.
 
-![consilium-hospites](public\logo.gif "Consilium Hospites")
+![consilium-hospites](./public/logo.gif "Consilium Hospites")
 
 ## Содержание
 
